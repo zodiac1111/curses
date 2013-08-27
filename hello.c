@@ -1,3 +1,6 @@
+/*
+ 最简单程序
+*/
 #include    <curses.h>
 #define     ROW 10
 #define     COL 20
