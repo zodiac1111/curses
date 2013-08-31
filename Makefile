@@ -6,7 +6,7 @@ all:
 	gcc hello.c -lncursesw
 	#gcc -o bullseye bullseye.c -lcurses
 cur:cur.c
-	gcc $< -o $@ -lncursesw
+	cc $< -o $@ -lncursesw -g
 pop:pop.c
 	gcc $< -o $@ -lncursesw
 first:first.c
