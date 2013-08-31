@@ -2,14 +2,13 @@
 # curses 旧的实现,有些系统可能没有
 # ncurses new curses  新的开源实现
 # ncursesw new curses 宽字节实现 (UTF-8字符)
-all:
-	gcc hello.c -lncursesw
-	#gcc -o bullseye bullseye.c -lcurses
-cur:cur.c
-	cc $< -o $@ -lncursesw -g
-pop:pop.c
-	gcc $< -o $@ -lncursesw
-first:first.c
-	gcc $< -o $@ -lncursesw
+CC=gcc
+LIB_CURSES= -lncursesw
+EXES= hello cur pop first
+OBJS = $(SRCS:.c = .o)
+.PHONY:all clean sub
+all:${EXES}
+$(EXES):
+	$(CC) -o $@  $@.c ${LIB_CURSES}
 clean:
-	rm -f cur a.out pop first
+	rm -f $(EXES)
